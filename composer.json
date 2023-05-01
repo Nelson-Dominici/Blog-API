@@ -1,0 +1,26 @@
+{
+    "name": "nelson-dominici/laser-war-2d-online-game",
+    "description": "A 2D Online Game",
+    "type": "projetc",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nelson-Dominici",
+            "email": "nelsoncomer777@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.1.13",
+        "composer/composer": ">=2.5.1",
+        "twig/twig": "^3.0",
+        "firebase/php-jwt": "^6.4",
+        "ramsey/uuid": "^4.7",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
