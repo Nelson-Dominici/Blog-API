@@ -1,0 +1,35 @@
+{% extends "master.twig" %}
+
+{% block style %}
+
+<link rel="stylesheet" type="text/css" href="Public/Templates/userAccount/formStyles.css">
+
+{% endblock %}
+	
+
+{% block body %}
+
+<form id="accountForm">
+	<p id="formError"></p>
+	<h3 id="formName">Register</h3>
+	<span>
+	  	<label for="name">Name</label>
+	  	<input type="text" id="name" name="name" placeholder="Enter your Name"><br><br>
+	  	<label for="email">Email</label>
+	  	<input type="text" id="email" name="email" placeholder="Enter your Email"><br><br>
+	  	<label for="password">Password</label>
+	  	<input type="password" id="password" name="password" placeholder="Choose a password"><br><br>
+	  	<input type="submit" id="formButton" value="Register">
+	</span>
+
+	<p id="tagLink">Have an account ? <a href="/">Login</a></p>
+</form>
+
+{% endblock %}
+
+
+{% block javascript %}
+
+<script src="Public/Templates/userAccount/javascript/register.js"></script>
+
+{% endblock %}
