@@ -1,6 +1,6 @@
 {
-    "name": "nelson-dominici/laser-war-2d-online-game",
-    "description": "A 2D Online Game",
+    "name": "nelson-dominici/PHP-Blog",
+    "description": "A personal blog about PHP",
     "type": "projetc",
     "license": "MIT",
     "autoload": {
