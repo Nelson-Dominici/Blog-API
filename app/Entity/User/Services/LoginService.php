@@ -8,7 +8,6 @@ use Firebase\JWT\JWT;
 
 class LoginService
 {
-
 	private static function validData($reqBody){
 
 		if(
