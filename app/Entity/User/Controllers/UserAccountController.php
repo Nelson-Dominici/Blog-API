@@ -33,12 +33,12 @@ class UserAccountController
 
 	public static function loginView(Request $req, Response $res){
 		
-		RenderView::view("Templates/userAccount/login");
+		RenderView::view("Templates/user/userAccount/login");
 	}
 
 	public static function registerView(Request $req, Response $res){
 
-		RenderView::view("Templates/userAccount/register");
+		RenderView::view("Templates/user/userAccount/register");
 	}
 
 }
