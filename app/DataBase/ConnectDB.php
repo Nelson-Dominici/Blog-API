@@ -1,9 +1,7 @@
 <?php
 
 namespace app\DataBase;
-
 use app\Utils\AppException;
-use app\Config;
 
 class ConnectDB
 {
