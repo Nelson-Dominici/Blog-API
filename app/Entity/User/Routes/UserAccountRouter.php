@@ -7,8 +7,8 @@ use app\Framework\App;
 
 return function(App $app): void
 {
-	$app->get("/", [UserAccountController::class, "loginView"]);
-	$app->get("/register", [UserAccountController::class, "registerView"]);
+	$app->get("/user/login", [UserAccountController::class, "loginView"]);
+	$app->get("/user/register", [UserAccountController::class, "registerView"]);
 
 	$app->post("/user/", [UserAccountController::class, "login"]);
 	$app->post("/user/register", [UserAccountController::class, "register"]);
