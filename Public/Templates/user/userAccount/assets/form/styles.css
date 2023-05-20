@@ -1,0 +1,74 @@
+*{
+	margin: 0;
+	padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+	height: 100vh;
+}
+
+body, #accountForm{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#formName, 
+#message,
+#tagLink a,
+#accountForm input,
+#accountForm input:not(#submit)[placeholder]::placeholder{
+	color: #838DBA;
+}
+
+#formName{
+	position: absolute;
+	top: 45px;
+	left: 49px;
+}
+
+#accountForm{
+	position: relative;
+	width: 340px;
+	border: none;
+	height: 400px;
+	border-radius: 4px;
+	flex-direction: column;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#accountForm input:not([type="submit"]) {
+	padding: 6px;
+	font-weight: 550;
+}
+
+#accountForm input{
+	height: 36px;
+	width: 240px;
+	border: 1px solid #838DBA;
+	outline: none;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+#accountForm input[type="submit"] {
+	color: white;
+	border: none;
+	font-size: 14px;
+	font-weight: bolder;
+	background-color: #838DBA;
+}
+
+#tagLink{
+	position: absolute;
+	bottom: 50px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+#message{
+	position: absolute;
+	top: 15px;
+	font-size: 13px;
+}
