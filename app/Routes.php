@@ -11,5 +11,5 @@ return function(App $app): void
 	$userAccountRouter($app);
 	$postsRoutes($app);
 	
-	header("Location: /");
+	header("Location: /home");
 };
