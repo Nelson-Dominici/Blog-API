@@ -2,7 +2,7 @@
 
 {% block style %}
 
-<link rel="stylesheet" type="text/css" href="/Public/Templates/user/userAccount/assets/styles.css">
+<link rel="stylesheet" type="text/css" href="/Public/Templates/user/userAccount/assets/form/styles.css">
 
 {% endblock %}
 	
@@ -10,7 +10,7 @@
 {% block body %}
 
 <form id="accountForm">
-	<p id="formError"></p>
+	<p id="message"></p>
 	<h3 id="formName">Login</h3>
 	<span>
 	  	<input type="email" id="email" name="email" placeholder="Enter your Email"><br><br>
@@ -26,6 +26,6 @@
 
 {% block javascript %}
 
-<script src="/Public/Templates/user/userAccount/assets/javascript/login.js"></script>
+<script src="/Public/Templates/user/userAccount/assets/form/login.js"></script>
 
 {% endblock %}
