@@ -14,11 +14,10 @@ class UserAccountController
 
 	public static function login(Request $req, Response $res){
 		
-		$token = LoginService::execute($req->body);
+		LoginService::execute($req->body);
 		
 		$res->status(200)->sendJson([
-			"success" => true,
-			"data" => ["token"=> $token]
+			"success" => true
 		]);
 	}
 
