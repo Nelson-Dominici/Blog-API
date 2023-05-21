@@ -45,11 +45,12 @@ class LoginService
 
 		$payload = [
 		    "uuid" => $user["uuid"],
+		    "adm" => $user["adm"],
 		    "exp" => time() + (8 * 24 * 60 * 60)
 		];
 
 		$jwt = JWT::encode($payload, $_ENV["JWT_KEY"], "HS256");
 
-		return $jwt;
+		setcookie("token", $jwt, time() + (8 * 24 * 60 * 60), "/");
 	}
 }
