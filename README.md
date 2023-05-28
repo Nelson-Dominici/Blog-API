@@ -5,7 +5,7 @@
 
 </h1>
 
-<img style="object-fit: cover;" src="https://github.com/Nelson-Dominici/PHP-Framework/assets/89428967/2a6345e2-d246-493a-9660-2652ede3d6b9">
+<img style="object-fit: cover;" src="https://github.com/Nelson-Dominici/PHP-Blog/assets/89428967/e41c196a-7580-4739-9409-e90dea99948b">
 
 <h2>🚀 About</h2>
 <p>
