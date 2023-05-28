@@ -1,0 +1,41 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica;
+}
+
+main, body{
+	display: flex;
+}
+
+body{
+	height: 100vh;
+	justify-content: center;
+}
+
+header{
+	align-items: center;
+}
+
+main{
+    width: 60%;
+	flex-direction: column;
+}
+
+main header h1{
+	font-size: 45px;
+	margin: 50px 0px 5px 0px;
+}
+
+#contente h2, header, #contente p{
+	color: #838DBA;
+}
+
+#contente{
+	padding-bottom: 50px;
+	margin-top: 10px;
+}
+
+#contente h2{
+	margin: 30px 0px 7px 0px;
+}
