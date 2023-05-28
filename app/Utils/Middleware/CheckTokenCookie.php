@@ -19,10 +19,10 @@ class CheckTokenCookie
 				return ["payload" => $payload];
 
 			}catch (\Exception $e) {
-				header("Location: /home");
+				header("Location: /user/login");
 			}
 		}
 	
-		header("Location: /home");
+		header("Location: /user/login");
 	}
 }
