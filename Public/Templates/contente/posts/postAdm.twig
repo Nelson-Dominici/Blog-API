@@ -1,0 +1,45 @@
+{% extends "master.twig" %}
+
+{% block style %}
+
+<link rel="stylesheet" type="text/css" href="/Public/Templates/Contente/posts/assets/postAdm/styles.css">
+
+{% endblock %}
+	
+
+{% block body %}
+
+<main>
+	<span id="message"></span>
+	<div id="addPostDiv">
+
+	    <label for="title">Post Title</label><br><br>
+	  	<input type="text" id="title" name="title" placeholder="Enter a title for the post"><br><br>
+
+	  	<label for="content">Post Content</label><br><br>
+		<textarea placeholder="Put the content of the post" id="postContente" name="content"></textarea>
+
+	</div>
+	<br>
+	<div id="deletePostDiv">
+
+		<input type="submit" id="addPost" value="add post"><br>
+		<span id="searchPostSpan">
+			<input type="text" id="deletePostInput" placeholder="Post id">
+			<button id="deletePost">
+				<img src="/Public/Images/delete.png" draggable="false" height="20px" width="20px"> 
+			</button>
+		</span>
+
+	</div>
+
+</main>
+
+{% endblock %}
+
+
+{% block javascript %}
+
+<script src="/Public/Templates/Contente/posts/assets/postAdm/javascript.js"></script>
+
+{% endblock %}
