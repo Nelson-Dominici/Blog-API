@@ -4,7 +4,8 @@ namespace app\Utils;
 
 class RenderView
 {
-	public static function view($templatePath, $data = []): void{
+	public static function view($templatePath, $data = []): void
+	{
 	
 		$loader = new \Twig\Loader\FilesystemLoader("Public/");
 		$twig = new \Twig\Environment($loader);
