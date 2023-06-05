@@ -2,14 +2,20 @@
 
 namespace app\Entity\User\Routes;
 
+use Slim\Routing\RouteCollectorProxy;
 use app\Entity\User\Controllers\UserAccountController;
-use app\Framework\App;
 
-return function(App $app): void
+return function($app): void
 {
-	$app->get("/user/login", [UserAccountController::class, "loginView"]);
-	$app->get("/user/register", [UserAccountController::class, "registerView"]);
 
-	$app->post("/user/", [UserAccountController::class, "login"]);
-	$app->post("/user/register", [UserAccountController::class, "register"]);
+	$app->group("/user", function(RouteCollectorProxy $group){
+
+		$group->get("/login", [UserAccountController::class, "loginView"]);
+		$group->get("/register", [UserAccountController::class, "registerView"]);
+
+		$group->post("/", [UserAccountController::class, "login"]);
+		$group->post("/register", [UserAccountController::class, "register"]);
+
+	});
+
 };
