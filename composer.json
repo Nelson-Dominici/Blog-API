@@ -1,5 +1,5 @@
 {
-    "name": "nelson-dominici/PHP-Blog",
+    "name": "nelson-dominici/php-blog",
     "description": "A personal blog about PHP",
     "type": "projetc",
     "license": "MIT",
@@ -20,7 +20,10 @@
         "composer/composer": ">=2.5.1",
         "twig/twig": "^3.0",
         "firebase/php-jwt": "^6.4",
-        "ramsey/uuid": "^4.7",
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.6",
+        "respect/validation": "^2.2",
+        "ramsey/uuid": "^4.7"
     }
 }
