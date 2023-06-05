@@ -1,0 +1,117 @@
+{% extends "master.twig" %}
+
+{% block style %}
+
+<link rel="stylesheet" type="text/css" href="/Public/Templates/Contente/userPost/post/styles.css">
+
+{% endblock %}
+	
+
+{% block body %}
+
+<main>
+
+	<header>
+		<span>
+			<h1>{{ title }}</h1>
+			<p>{{ post_date }}</p>
+		</span>
+	</header>
+
+	<div id="contente">
+
+	{{ contente|raw }}
+
+	</div>
+
+	<div id="commentNameDiv">
+		<h4>comments</h4>
+		<span></span>
+	</div>
+
+	<div id="comments">
+
+		<div>
+
+			<img src="/Public/Images/user.png" id="userImg" alt="user">
+
+			<span>
+				<h4>Julio</h4>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+			</span>
+
+			<button id="deleteComment">
+				<img src="/Public/Images/delete.png" draggable="false" height="20px" width="20px"> 
+			</button>
+		
+		</div>
+
+
+		<div>
+			<img src="/Public/Images/user.png" alt="user" width="50" height="50">
+			<span>
+				<h4>Julio</h4>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+			</span>
+		</div>
+
+
+
+		<div>
+			<img src="/Public/Images/user.png" alt="user" width="50" height="50">
+			<span>
+				<h4>Julio</h4>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+			</span>
+		</div>
+
+
+		<div>
+			<img src="/Public/Images/user.png" alt="user" width="50" height="50">
+			<span>
+				<h4>Julio</h4>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+			</span>
+		</div>
+
+
+		<div>
+			<img src="/Public/Images/user.png" alt="user" width="50" height="50">
+			<span>
+				<h4>Julio</h4>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+				<p>Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio Julio</p>
+			</span>
+		</div>
+
+	</div>
+
+</main>
+
+{% endblock %}
+
+
+{% block javascript %}
+
+<script src="/Public/Templates/Contente/userPost/post/javascript.css"></script>
+
+{% endblock %}

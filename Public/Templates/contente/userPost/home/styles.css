@@ -1,0 +1,78 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica;
+}
+
+#phpBanner{
+	height: 50vh;
+	background-color: #838DBA;
+}
+
+#phpBanner, #postsDiv, #postsSpan{
+	display: flex;
+	align-items: center;
+}
+
+#phpBanner{
+	justify-content: center;
+}
+
+#phpBanner{
+	font-size: 35px;
+	color: white;
+}
+
+#postsSpan{
+	padding: 15px;
+	flex-direction: column;
+}
+
+#postsSpan h4{
+	color: #838DBA;
+}
+
+main{
+	padding-bottom: 20px;
+}
+
+#postsSpan span{
+	width: 60px;
+	border: 2px solid #838DBA;
+}
+
+#postsDiv{
+	padding-bottom: 20px;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#postsDiv div{
+	width: 450px;
+	color: #838DBA;
+	padding: 50px 0px 50px 0px;
+	border-bottom: 2px solid #838DBA;
+}
+
+#postsDiv div a{
+	color: #838DBA;
+	cursor: pointer;
+	font-size: 27px;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+#postsDiv div p{
+	margin-top: 20px;
+}
+
+@media screen and (max-width: 492px){
+
+	#phpBanner h1 {
+	    font-size: 49px;
+	}
+
+	#postsDiv div{
+	    width: 90%;
+	}
+}
