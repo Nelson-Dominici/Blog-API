@@ -1,14 +1,10 @@
 <?php
 
 require_once("bootstrap.php");
-use app\Utils\AppException;
 
-try {
- 
-    $routes = require_once("app/Routes.php");
-    $routes($app);
+$app->add($body);
 
-} catch (AppException $e) {
-    
-    $e->sendException();
-}
+$routes = require_once("app/routes.php");
+$routes($app);
+
+$app->run();
