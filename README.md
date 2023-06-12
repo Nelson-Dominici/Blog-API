@@ -9,7 +9,7 @@
 
 <h2>🚀 About</h2>
 <p>
-A blog where I talk about PHP, I used my own <a href="https://github.com/Nelson-Dominici/PHP-Framework">framework</a> to create the project. The design was made by me. I intend to add new features in the project.
+A personal blog where I talk about PHP, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a> framework, with integration for exception handling and authentication users using jwt token. The design was made by me. I intend to add new features in the project.
 </p>
   
 <h2>🎱 Features</h2>
@@ -21,14 +21,13 @@ A blog where I talk about PHP, I used my own <a href="https://github.com/Nelson-
 
 <h2>🛠 Technologies</h2>
 
-<li><a href="https://www.php.net/">PHP</a></li>
 <li><a href="https://jquery.com/">Jquery</a></li>
 <li><a href="https://jwt.io">JWT</a></li>
 <li><a href="https://www.mysql.com/">MySQL</a></li>
 <li><a href="https://pt.wikipedia.org/wiki/SQL">SQL</a></li>
 <li><a href="https://twig.symfony.com/">Twig</a></li>
 <li><a href="https://pt.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a></li>
-<li><a href="https://github.com/Nelson-Dominici/PHP-Framework">My PHP-Framework</a></li>
+<li><a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a></li>
 
 <h2>🔥 Author</h2>
 
