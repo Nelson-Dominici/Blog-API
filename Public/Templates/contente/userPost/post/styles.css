@@ -1,38 +1,65 @@
 *{
 	margin: 0;
 	padding: 0;
+	color: #838DBA;
 	font-family: Arial, Helvetica;
 }
 
-main, body, #comments div, #commentNameDiv{
+main, 
+body,
+#comments div,
+#purpleRollingGifSpan,
+#divInput form,
+#spanToGoLogin,
+#commentNameDiv,
+#comments div span{
 	display: flex;
 }
 
 body{
 	height: 100vh;
+}
+
+body,
+#spanToGoLogin,
+#purpleRollingGifSpan{	
 	justify-content: center;
 }
 
-header, #commentNameDiv{
+header, 
+#commentNameDiv{
 	align-items: center;
+}
+
+main,
+#comments div,
+#divInput form,
+#commentNameDiv{
+	flex-direction: column;
 }
 
 main{
     width: 60%;
-	flex-direction: column;
 }
 
 main header h1{
 	font-size: 45px;
-	margin: 50px 0px 5px 0px;
+	margin: 80px 0px 5px 0px;
 }
 
-#contente h2, header, #contente p, #comments div, #commentNameDiv h4{
+#divInput form input::placeholder{
 	color: #838DBA;
 }
 
-#contente{
+#purpleRollingGifSpan{
+	margin-top: -35px;
+}
+
+#comments, #contente{
 	padding-bottom: 40px;
+}
+
+#contente, #divInput form button, .deleteComment{
 	margin-top: 10px;
 }
 
@@ -40,11 +67,7 @@ main header h1{
 	margin: 30px 0px 7px 0px;
 }
 
-#commentNameDiv{
-	flex-direction: column;
-}
-
-#comments button, #commentNameDiv span{
+#commentNameDiv span, #divInput form button, .deleteComment{
 	background-color: #838DBA;
 }
 
@@ -53,38 +76,77 @@ main header h1{
 	height: 5px;
 }
 
-#comments{
-	padding-bottom: 40px;
+#comments div, #divInput{
+	position: relative;
+	padding: 10px 10px 25px 10px;
 }
 
-#comments div{
-	position: relative;
-	margin-bottom: 10px;
-	padding: 10px 10px 5px 10px;
+#comments div h4, 
+#divInput form h4, 
+#commentNameDiv span{
+	margin-bottom: 6px;
+}
+
+.deleteComment,
+#divInput button, 
+#divInput input{
+	border: none;
+}
+
+#divInput input{
+    width: 100%;
+    outline: none;
+	font-size: 15px;
+	margin-top: 15px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #838DBA;
+}
+
+#divInput form button, .deleteComment{
+	cursor: pointer;
+}
+
+#divInput form button, #spanToGoLogin span, .deleteComment{
+	color: white;
+}
+
+#divInput form button, .deleteComment{
+    width: 80px;
+    height: 33px;
+    font-weight: 700;
+    margin-left: auto;
 }
 
 #comments div span{
-	margin-left: 15px;
-	margin-top: 5px;
+	justify-content: flex-end;
 }
 
-#userImg{
-	width: 50px;
-	height: 50px;
-	object-fit: cover;
+#spanToGoLogin span{
+	width: 250px;
+	padding: 13px;
+	font-size: 14px;
+	font-weight: bolder;
+	background-color: #838DBA;
 }
 
-#deleteComment{
+#homeBtn, #accountBtn{
+	top: 30px;
+	font-weight: 700;
+}
+
+#homeBtn{
+	left: 30px;
 	position: absolute;
-    right: -25px;
-    height: 30px;
-	border: none;
-    width: 30px;
-    top: 15px;
 }
 
-#deleteComment img{
-	width: 20px;
-	height: 20px;
-	object-fit: cover;
+#accountBtn{
+	left: 100px;
+	position: absolute;
+}
+
+@media screen and (max-width: 669px){
+	
+	main {
+	    width: 85%;
+	}
 }

@@ -32,12 +32,11 @@ input,
 #addPostDiv textarea, 
 #searchPostSpan button{
 	outline: none;
-	cursor: pointer;
 	box-sizing: border-box;
 }
 
 #addPostDiv textarea{
-	width: 530px;
+	width: 590px;
 	height: 200px;
 }
 
@@ -75,6 +74,7 @@ input:not([type="submit"]){
 
 #addPost, #searchPostSpan button{
 	border: none;
+	cursor: pointer;
 	background-color: #838DBA;
 }
 

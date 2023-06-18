@@ -38,23 +38,23 @@ body, #accountForm{
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-#accountForm input:not([type="submit"]) {
+#accountForm input{
 	padding: 6px;
 	font-weight: 550;
 }
 
-#accountForm input{
+#accountForm input, #formButton{
 	height: 36px;
 	width: 240px;
 	border: 1px solid #838DBA;
 	outline: none;
-	cursor: pointer;
 	box-sizing: border-box;
 }
 
-#accountForm input[type="submit"] {
+#formButton {
 	color: white;
 	border: none;
+	cursor: pointer;
 	font-size: 14px;
 	font-weight: bolder;
 	background-color: #838DBA;

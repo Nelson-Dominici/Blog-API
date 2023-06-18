@@ -66,6 +66,13 @@ main{
 	margin-top: 20px;
 }
 
+#postsDiv img{
+	width: 70px;
+	height: 70px;
+	margin-top: 70px;
+	object-fit: cover;
+}
+
 @media screen and (max-width: 492px){
 
 	#phpBanner h1 {
