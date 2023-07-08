@@ -2,14 +2,13 @@
 
 require_once("./vendor/autoload.php");
 
-$body = require_once("app/Middlewares/reqBody.php");
-$handleExceptions = require_once("app/Middlewares/handleExceptions.php");
-
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 $app = Slim\Factory\AppFactory::create();
 $app->addRoutingMiddleware();
 
+$app->add(new \app\Middlewares\GetReqbody());
+
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
-$errorMiddleware->setDefaultErrorHandler($handleExceptions);
+$errorMiddleware->setDefaultErrorHandler(new \app\Middlewares\HandleExceptions());
