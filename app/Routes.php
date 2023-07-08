@@ -1,33 +1,31 @@
 <?php
 
-$app->group("/post", function( $group )
+use Slim\Routing\RouteCollectorProxy;
+
+$app->group("/post", function(RouteCollectorProxy $group): void
 {
 
-	$postUserRouter = require "Entity/Post/PostUser/PostUserRouter.php";
-	$postUserRouter($group);
+	require_once("Modules/Post/PostUser/PostUserRouter.php");
 
-	$group->group("/adm", function( $group )
+	$group->group("/adm", function(RouteCollectorProxy $group): void
 	{
 
-		$postAdmRouter = require "Entity/Post/PostAdm/PostAdmRouter.php";
-		$postAdmRouter($group);
+		require_once("Modules/Post/PostAdm/PostAdmRouter.php");
 
-	})->add(new \app\Middlewares\Token\CheckCookieBlock());	
+	})->add(new \app\Middlewares\AuthenticateReqToken());	
 
-	$group->group("/comment", function( $group )
+	$group->group("/comment", function(RouteCollectorProxy $group): void
 	{
 
-		$postCommentRouter = require "Entity/Post/Comment/PostCommentRouter.php";
-		$postCommentRouter($group);
+		require_once("Modules/Post/Comment/PostCommentRouter.php");
 
 	});	
 
 });
 
-$app->group("/user", function( $group )
+$app->group("/user", function(RouteCollectorProxy $group): void
 {
 
-	$userAccountRouter = require "Entity/User/Account/UserAccountRouter.php";
-	$userAccountRouter($group);	
+	require_once("Modules/User/Account/UserAccountRouter.php");
 
-});
+});	
