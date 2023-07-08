@@ -9,7 +9,7 @@
 
 <h2>🚀 About</h2>
 <p>
-A personal blog where I talk about PHP, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a> framework, with integration for exception handling and authentication users using jwt token. The design was made by me. I intend to add new features in the project.
+A personal blog where I talk about PHP, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for exception handling and authentication users using jwt token. The design was made by me. I intend to add new features in the project.
 </p>
   
 <h2>🎱 Features</h2>
