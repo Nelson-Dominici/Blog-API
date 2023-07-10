@@ -20,7 +20,7 @@ A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">
 </ul>
 
 <ul>
-  <li>View all posts</li>
+  <li>Catch all post</li>
   <li>Get content from a post</li>
   <li>ADM can add and delete post</li>
 </ul>
