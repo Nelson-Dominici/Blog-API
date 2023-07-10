@@ -37,6 +37,7 @@ A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">
 <li><a href="https://www.mysql.com/">MySQL</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.15/index.html">Doctrine ORM</a></li>
 <li><a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a></li>
+<li><a href="https://respect-validation.readthedocs.io/en/latest/">Respect Validation</a></li>
 
 
 <h2>🔥 Author</h2>
