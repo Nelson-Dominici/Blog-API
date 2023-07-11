@@ -13,7 +13,6 @@ class DeleteCommentService
 	{
 		
 		$entityManager = EntityManagerHelper::getEntityManager();
-
 		$commentRepository = $entityManager->getRepository(Comments::class);
 
 		$comment = $commentRepository->findOneBy([
