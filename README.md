@@ -28,8 +28,11 @@ A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">
 
 <ul>
   <li>Comment on a post</li>
+  <li>Edit your comment of a post</li>
   <li>Delete own comment on a post</li>
 </ul>
+
+
 <h2>🛠 Technologies</h2>
 
 
