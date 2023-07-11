@@ -17,7 +17,7 @@ class GetCommentsService
 
 		$skipQuery = intval($queryParams["skipQuery"] ?? 0) * 5;
 
-		$qb = $commentsRepository->createQueryBuilder("c")
+		$queryBuilder = $commentsRepository->createQueryBuilder("c")
 		    ->select("c.contente, c.commentUuid, u.name")
 		    ->innerJoin(Users::class, "u", "WITH", "c.userUuid = u.userUuid")
 		    ->where("c.postUuid = :postUuid")
@@ -26,7 +26,7 @@ class GetCommentsService
 		    ->setFirstResult($skipQuery)
 		    ->setParameter("postUuid", $postUuid);
 
-		$data = ["comments" => $qb->getQuery()->getResult()];
+		$data = ["comments" => $queryBuilder->getQuery()->getResult()];
 
 		return $data;
 
