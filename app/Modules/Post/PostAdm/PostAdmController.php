@@ -16,9 +16,9 @@ class PostAdmController
 		if ($req->getAttribute("payload")->adm) {
 			
 			v::key(
-				"title", v::stringType()::notEmpty()
+				"title", v::stringType()->notEmpty()
 			)->key(
-	    		"postContente", v::stringType()::notEmpty()	
+	    		"postContente", v::stringType()->notEmpty()	
 	    	)->assert($req->getParsedBody());
 
 			Services\AddPostService::addPost($req->getParsedBody());
@@ -36,11 +36,49 @@ class PostAdmController
 
 		if ($req->getAttribute("payload")->adm) {
 
-			v::key(
-				"postUuid", v::number()::notEmpty()
-			)->assert($args);
-
 			Services\DeletePostService::deletePost($args);
+
+			return SendJson::send(["success" => true]);
+
+		}
+        
+		return SendJson::send(["success" => false]);
+		
+	}
+
+	public function editPostContente(Request $req, Response $res): Response
+	{
+
+		if ($req->getAttribute("payload")->adm) {
+
+			v::key(
+				"postUuid", v::stringType()->notEmpty()
+			)->key(
+	    		"newContente", v::stringType()->notEmpty()	
+	    	)->assert($req->getParsedBody());
+
+			Services\EditPostContenteService::editContente($req->getParsedBody());
+
+			return SendJson::send(["success" => true]);
+
+		}
+        
+		return SendJson::send(["success" => false]);
+		
+	}
+	
+	public function editPostTitle(Request $req, Response $res): Response
+	{
+
+		if ($req->getAttribute("payload")->adm) {
+
+			v::key(
+				"postUuid", v::stringType()->notEmpty()
+			)->key(
+	    		"newContente", v::stringType()->notEmpty()	
+	    	)->assert($req->getParsedBody());
+
+			Services\EditPostTitleService::editTitle($req->getParsedBody());
 
 			return SendJson::send(["success" => true]);
 
