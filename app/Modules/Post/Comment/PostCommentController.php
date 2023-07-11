@@ -10,13 +10,13 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class PostCommentController
 {
 	
-	public function addComment(Request $req, Response $res): Response
+	public function addPostComment(Request $req, Response $res): Response
 	{
 
 		v::key(
-			"contente", v::stringType()::notEmpty()
+			"contente", v::stringType()->notEmpty()
 		)->key(
-    		"postUuid", v::number()::notEmpty()
+    		"postUuid", v::number()->notEmpty()
     	)->assert($req->getParsedBody());
 
 		$data = Services\AddCommentService::comment(
@@ -53,5 +53,23 @@ class PostCommentController
 		return SendJson::send(["success" => true]);
 		
 	}
-	
+
+	public function editPostComment(Request $req, Response $res): Response
+	{
+
+		v::key(
+			"newContente", v::stringType()->notEmpty()
+		)->key(
+    		"commentUuid", v::stringType()->notEmpty()
+    	)->assert($req->getParsedBody());
+
+		Services\EditPostCommentService::editComment(
+			$req->getParsedBody(), 
+			$req->getAttribute("payload")->userUuid
+		);
+
+		return SendJson::send(["success" => true]);
+		
+	}
+
 }
