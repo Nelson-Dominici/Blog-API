@@ -1,33 +1,44 @@
 
 <h1 align="center" >
 
-💜 PHP Blog 💜
+💜 Blog Rest API 💜
 
 </h1>
 
-<img style="object-fit: cover;" src="https://github.com/Nelson-Dominici/PHP-Blog/assets/89428967/e41c196a-7580-4739-9409-e90dea99948b">
-
 <h2>🚀 About</h2>
 <p>
-A personal blog where I talk about PHP, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for exception handling and authentication users using jwt token. The design was made by me. I intend to add new features in the project.
+A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for exception handling and authentication users using jwt token.
 </p>
   
 <h2>🎱 Features</h2>
 
-<li>Register and Login user</li>
-<li>Add and delete posts(Only I can do that)</li>
-<li>View all posts on homepage(infinite scroll)</li>
-<li>View the content of a specific post</li>
+<ul>
+  <li>Login user</li>
+  <li>Register user</li>
+  <li>Rename username</li>
+  <li>User can delete his own account</li>
+</ul>
 
+<ul>
+  <li>Catch all post</li>
+  <li>Get content from a post</li>
+  <li>ADM can add and delete post</li>
+</ul>
+
+<ul>
+  <li>Comment on a post</li>
+  <li>Delete own comment on a post</li>
+</ul>
 <h2>🛠 Technologies</h2>
 
-<li><a href="https://jquery.com/">Jquery</a></li>
+
 <li><a href="https://jwt.io">JWT</a></li>
+<li><a href="https://packagist.org/packages/ramsey/uuid">UUID</a></li>
 <li><a href="https://www.mysql.com/">MySQL</a></li>
-<li><a href="https://pt.wikipedia.org/wiki/SQL">SQL</a></li>
-<li><a href="https://twig.symfony.com/">Twig</a></li>
-<li><a href="https://pt.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.15/index.html">Doctrine ORM</a></li>
 <li><a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a></li>
+<li><a href="https://respect-validation.readthedocs.io/en/latest/">Respect Validation</a></li>
+
 
 <h2>🔥 Author</h2>
 
