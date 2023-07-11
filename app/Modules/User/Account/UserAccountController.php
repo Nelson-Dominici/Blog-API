@@ -45,4 +45,30 @@ class UserAccountController
 
 	}
 
+	public function deleteAccount(Request $req, Response $res): Response
+	{
+		
+		$userUuid = $req->getAttribute("payload")->userUuid;
+		Services\DeleteAccountService::delete($userUuid);
+
+		return SendJson::send(["success" => true]);
+
+	}
+
+	public function renameUsername(Request $req, Response $res): Response
+	{
+
+		v::key(
+			"newName", v::stringType()->notEmpty()
+    	)->assert($req->getParsedBody());
+		
+		Services\RenameUsernameService::renameUsername(
+			$req->getParsedBody(),
+			$req->getAttribute("payload")->userUuid
+		);
+
+		return SendJson::send(["success" => true]);
+
+	}
+
 }
