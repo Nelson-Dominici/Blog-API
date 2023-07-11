@@ -13,7 +13,7 @@ class EntityManagerHelper
 	{
 
 		$config = ORMSetup::createAttributeMetadataConfiguration(
-		   paths: array(__DIR__."/app"),
+		   paths: [dirname(__DIR__).DIRECTORY_SEPARATOR."/Entitys"],
 		   isDevMode: true,
 		);
 
