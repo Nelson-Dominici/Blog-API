@@ -26,6 +26,11 @@ $app->group("/post", function(RouteCollectorProxy $group): void
 $app->group("/user", function(RouteCollectorProxy $group): void
 {
 
-	require_once("Modules/User/Account/UserAccountRouter.php");
+	$group->group("/account", function($group): void
+	{
+
+		require_once("Modules/User/Account/UserAccountRouter.php");
+		
+	});
 
 });	
