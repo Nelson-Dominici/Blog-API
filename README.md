@@ -23,12 +23,16 @@ A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">
   <li>Catch all post</li>
   <li>Get content from a post</li>
   <li>ADM can add and delete post</li>
+  <li>ADM can edit the title and content of a postt</li>
 </ul>
 
 <ul>
   <li>Comment on a post</li>
+  <li>Edit your comment of a post</li>
   <li>Delete own comment on a post</li>
 </ul>
+
+
 <h2>🛠 Technologies</h2>
 
 
