@@ -21,9 +21,9 @@ A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">
 
 <ul>
   <li>Catch all post</li>
-  <li>Get content from a post</li>
   <li>ADM can add and delete post</li>
   <li>ADM can edit the title and content of a postt</li>
+  <li>Route to get the content of a post, changing the markdown code to html</li>
 </ul>
 
 <ul>
