@@ -31,12 +31,10 @@ class HandleExceptions
 			], 400);
 	    }
 
-	    var_dump($exception);
-	    return $res;
-		// return $this->sendJson([
-		// 	"success" => false,
-		// 	"data" => ["message" => "Fatal Error"]
-		// ], 500);    
+		return SendJson::send([
+			"success" => false,
+			"data" => ["message" => "Fatal Error"]
+		], 500);    
 
    }
 
