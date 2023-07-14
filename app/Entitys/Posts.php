@@ -15,7 +15,7 @@ class Posts
     #[ORM\Column(type: "datetime", length: 15)]
     private \DateTimeInterface $postDate;
 
-    #[ORM\Column(type: "string", length: 5000)]
+    #[ORM\Column(type: "text")]
     private string $contente;
 
     #[ORM\Id]
