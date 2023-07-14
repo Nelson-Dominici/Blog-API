@@ -18,7 +18,7 @@ class Comments
     #[ORM\Column(type: "string", length: 36)]
     private string $postUuid;
 
-    #[ORM\Column(type: "string", length: 5000)]
+    #[ORM\Column(type: "text")]
     private string $contente;
 
     #[ORM\Id]
