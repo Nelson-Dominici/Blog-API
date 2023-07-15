@@ -1,6 +1,6 @@
 {
     "name": "nelson-dominici/php-blog",
-    "description": "A Rest API from a blog, with Slim Framework",
+    "description": "A RESTful API from a blog, with Slim Framework",
     "type": "projetc",
     "license": "MIT",
     "autoload": {
