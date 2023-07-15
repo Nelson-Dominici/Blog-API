@@ -7,7 +7,7 @@
 
 <h2>🚀 About</h2>
 <p>
-A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for exception handling and authentication users using jwt token.
+A RESTful API from a blog, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for exception handling and authentication users using jwt token.
 </p>
   
 <h2>🎱 Features</h2>
