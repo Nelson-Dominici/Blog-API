@@ -41,7 +41,8 @@ A RESTful API from a blog, made with the <a href="https://www.slimframework.com/
   ```
   composer install
   ```
- <br><strong>2.</strong> And then create a <strong>.env</strong> file using the <strong>".env.example"</strong> file as a reference.<br><br>
+ <strong>2.</strong> And then create a <strong>.env</strong> file using the <strong>".env.example"</strong> file as a reference.<br>
+ 
   <strong>3.</strong> And lastly run the command to create the database schema in the project location using a console (it is not recommended to run this command in a production environment, it is recommended to run it only in a development environment).
    
   ```
