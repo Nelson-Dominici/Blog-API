@@ -14,10 +14,7 @@ class AddPostService
 
 		$entityManager = EntityManagerHelper::getEntityManager();
 
-		$postUuid = Uuid::uuid4();
-		$postDate = new \DateTime();
-
-		$posts = new Posts($postDate, $postUuid);
+		$posts = new Posts(new \DateTime(), Uuid::uuid4());
 
 		$posts->setTitle($reqBody["title"]);
 		$posts->setContente($reqBody["postContente"]);
