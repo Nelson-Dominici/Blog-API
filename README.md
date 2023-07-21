@@ -7,7 +7,7 @@
 
 <h2>🚀 About</h2>
 <p>
-A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for exception handling and authentication users using jwt token.
+A RESTful API from a blog, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for exception handling and authentication users using jwt token.
 </p>
   
 <h2>🎱 Features</h2>
@@ -41,7 +41,8 @@ A Blog Rest API, made with the <a href="https://www.slimframework.com/docs/v4/">
   ```
   composer install
   ```
-  <strong>2.</strong> And then create a <strong>.env</strong> file using the <strong>".env.example"</strong> file as a reference.<br><br>
+ <strong>2.</strong> And then create a <strong>.env</strong> file using the <strong>".env.example"</strong> file as a reference.<br>
+ 
   <strong>3.</strong> And lastly run the command to create the database schema in the project location using a console (it is not recommended to run this command in a production environment, it is recommended to run it only in a development environment).
    
   ```
