@@ -13,14 +13,14 @@ class Posts
     private string $title;
 
     #[ORM\Column(type: "datetime", length: 15)]
-    private \DateTimeInterface $postDate;
+    private \DateTimeInterface $date;
 
     #[ORM\Column(type: "text")]
     private string $contente;
 
     #[ORM\Id]
     #[ORM\Column(type: "string", length: 36)]
-    private string $postUuid;
+    private string $uuid;
 
     public function setTitle(string $title): void
     {
@@ -50,11 +50,11 @@ class Posts
     
     }
 
-    function __construct(\DateTimeInterface $postDate, string $postUuid)
+    function __construct(\DateTimeInterface $date, string $uuid)
     {
 
-        $this->postDate = $postDate;
-        $this->postUuid = $postUuid;
+        $this->date = $date;
+        $this->uuid = $uuid;
     
     }
 

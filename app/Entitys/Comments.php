@@ -10,7 +10,7 @@ class Comments
 {
 
     #[ORM\Column(type: "datetime", length: 15)]
-    private \DateTimeInterface  $commentDate;
+    private \DateTimeInterface  $date;
 
     #[ORM\Column(type: "string", length: 36)]
     private string $userUuid;
@@ -23,7 +23,7 @@ class Comments
 
     #[ORM\Id]
     #[ORM\Column(type: "string", length: 36)]
-    private string $commentUuid;
+    private string $uuid;
 
     public function setUserUuid(string $userUuid): void
     {
@@ -46,25 +46,25 @@ class Comments
 
     }
 
-    public function getCommentDate(): \DateTimeInterface
+    public function getDate(): \DateTimeInterface
     {
 
-        return $this->commentDate;
+        return $this->date;
 
     }
 
-    public function getCommentUuid(): string
+    public function getUuid(): string
     {
 
-        return $this->commentUuid;
+        return $this->uuid;
 
     }
 
-    function __construct(\DateTimeInterface $commentDate, string $commentUuid)
+    function __construct(\DateTimeInterface $date, string $uuid)
     {
 
-        $this->commentDate = $commentDate;
-        $this->commentUuid = $commentUuid;
+        $this->date = $date;
+        $this->uuid = $uuid;
 
     }
 

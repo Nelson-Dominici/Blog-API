@@ -20,7 +20,7 @@ class Users
 
     #[ORM\Id]
     #[ORM\Column(type: "string", length: 36)]
-    private string $userUuid;
+    private string $uuid;
 
     #[ORM\Column(type: "boolean")]
     private bool $adm = false;
@@ -46,10 +46,10 @@ class Users
     }
     
 
-    function __construct(string $userUuid)
+    function __construct(string $uuid)
     {
 
-        $this->userUuid = $userUuid;
+        $this->uuid = $uuid;
     }
     
 
@@ -60,10 +60,10 @@ class Users
     }
     
 
-    public function getUserUuid(): string
+    public function getUuid(): string
     {
 
-        return $this->userUuid;
+        return $this->uuid;
     }
     
 
