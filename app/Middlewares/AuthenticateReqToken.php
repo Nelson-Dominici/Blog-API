@@ -74,7 +74,7 @@ class AuthenticateReqToken
 		$usersRepository = $entityManager->getRepository(Users::class);
 		
 		$user = $usersRepository->findOneBy([
-		    "userUuid" => $userUuid
+		    "uuid" => $userUuid
 		]);
 
 		return $user;
