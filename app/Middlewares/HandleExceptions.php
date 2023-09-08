@@ -5,7 +5,6 @@ namespace app\Middlewares;
 use Slim\Psr7\Response;
 use app\Helpers\SendJson;
 use app\Helpers\AppException;
-use Slim\Exception\HttpNotFoundException;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Respect\Validation\Exceptions\NestedValidationException;
 
@@ -34,7 +33,7 @@ class HandleExceptions
 		return SendJson::send([
 			"success" => false,
 			"data" => ["message" => "Fatal Error"]
-		], 500);    
+		], 500);
 
    }
 
