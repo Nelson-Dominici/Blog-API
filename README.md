@@ -22,7 +22,7 @@ A RESTful API from a blog, made with the <a href="https://www.slimframework.com/
 <ul>
   <li>Catch all post</li>
   <li>ADM can add and delete post</li>
-  <li>ADM can edit the title and content of a postt</li>
+  <li>ADM can edit the title and content of a post</li>
   <li>Route to get the content of a post, changing the markdown code to html</li>
 </ul>
 
