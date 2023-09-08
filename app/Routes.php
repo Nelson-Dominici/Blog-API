@@ -2,35 +2,30 @@
 
 use Slim\Routing\RouteCollectorProxy;
 
-$app->group("/post", function(RouteCollectorProxy $group): void
+$app->group("/posts", function(RouteCollectorProxy $group): void
 {
 
-	require_once("Modules/Post/PostUser/PostUserRouter.php");
+	require_once("Modules/Post/Router.php");
 
-	$group->group("/adm", function(RouteCollectorProxy $group): void
+	$group->group("", function(RouteCollectorProxy $group): void
 	{
 
-		require_once("Modules/Post/PostAdm/PostAdmRouter.php");
+		require_once("Modules/Adm/Router.php");
 
 	})->add(new \app\Middlewares\AuthenticateReqToken());	
 
-	$group->group("/comment", function(RouteCollectorProxy $group): void
+	$group->group("/comments", function(RouteCollectorProxy $group): void
 	{
 
-		require_once("Modules/Post/Comment/PostCommentRouter.php");
+		require_once("Modules/Comment/Router.php");
 
 	});	
 
 });
 
-$app->group("/user", function(RouteCollectorProxy $group): void
+$app->group("/users", function(RouteCollectorProxy $group): void
 {
 
-	$group->group("/account", function($group): void
-	{
-
-		require_once("Modules/User/Account/UserAccountRouter.php");
-		
-	});
+	require_once("Modules/User/Router.php");
 
 });	
