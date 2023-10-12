@@ -2,16 +2,17 @@
 
 namespace app\Modules\Comment\Services;
 
-use app\Entitys\Users;
-use app\Entitys\Comments;
+use app\Entitys\{
+	Users,
+	Comments
+}
+
 use app\Helpers\EntityManagerHelper;
 
 class GetCommentsService
 {
-
-	public static function get(string $postUuid, array $queryParams): array
+	public static function handle(string $postUuid, array $queryParams): array
 	{
-
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$commentsRepository = $entityManager->getRepository(Comments::class);
 
@@ -29,7 +30,5 @@ class GetCommentsService
 		$data = ["comments" => $queryBuilder->getQuery()->getResult()];
 
 		return $data;
-
 	}
-
 }
