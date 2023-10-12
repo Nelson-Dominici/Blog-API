@@ -8,17 +8,15 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 
 class GetReqbody
 {
-
     public function __invoke(Request $request, RequestHandler $handler): Response
     {
-        
         $contentType = $request->getHeaderLine("Content-Type");
 
         if (strstr($contentType, "application/json")) {
          
             $contents = json_decode(file_get_contents("php://input"), true);
 
-            if($contents !== null){
+            if ($contents !== null) {
 
                 $contents = array_map( function( mixed $value )
                 {
@@ -35,7 +33,5 @@ class GetReqbody
         }
 
         return $handler->handle($request);
-              
     }
-
 }
