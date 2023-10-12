@@ -6,24 +6,22 @@ use Slim\Psr7\Response;
 
 trait ApiResponseTrait
 {
-	public function success(mixed $data = false, int $statusCode = 200): Response
+	protected function success(mixed $data = false, int $statusCode = 200): Response
 	{
 		$res = new Response();
 
-		if (!$data) {
-			
-			$res->getBody()->write(json_encode([
-				'success' => true,
-				'data' => $data
-			]));
-		}
+		$data = !$data 
+			? ['success' => true]
+			: ['success' => true, 'data' => $data];
+
+		$res->getBody()->write(json_encode($data));
 
 		return $res
 				->withHeader("Content-Type", "application/json")
 				->withStatus($statusCode);
 	}
 
-	public function error(string $message, int $statusCode = 400): Response
+	protected function error(string $message, int $statusCode = 400): Response
 	{
 		$res = new Response();
 
