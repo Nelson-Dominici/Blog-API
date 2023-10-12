@@ -5,7 +5,7 @@ namespace app\Modules\Comment\Services;
 use app\Entitys\{
 	Users,
 	Comments
-}
+};
 
 use app\Helpers\EntityManagerHelper;
 
