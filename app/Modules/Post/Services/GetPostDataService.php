@@ -4,7 +4,10 @@ namespace app\Modules\Post\Services;
 
 use app\Entitys\Posts;
 
-use app\Helpers\EntityManagerHelper;
+use app\Helpers\{
+	AppException,
+	EntityManagerHelper
+};
 
 class GetPostDataService
 {
@@ -18,7 +21,7 @@ class GetPostDataService
 		]);
 
 		if (!$post) {
-			return false;
+			throw new AppException("Post not found");
 		}
 
 		$parsedown = new \Parsedown();
