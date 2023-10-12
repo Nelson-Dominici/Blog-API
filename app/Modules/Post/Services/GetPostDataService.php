@@ -3,11 +3,12 @@
 namespace app\Modules\Post\Services;
 
 use app\Entitys\Posts;
+
 use app\Helpers\EntityManagerHelper;
 
 class GetPostDataService
 {
-	public static function get(array $urlParams): array|false
+	public static function handle(array $urlParams): array|false
 	{
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$postsRepository = $entityManager->getRepository(Posts::class);

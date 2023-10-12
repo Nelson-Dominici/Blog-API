@@ -3,14 +3,13 @@
 namespace app\Modules\Post\Services;
 
 use app\Entitys\Posts;
+
 use app\Helpers\EntityManagerHelper;
 
 class GetPostsService
 {
-	
-	public static function get(array $queryParams): array
+	public static function handle(array $queryParams): array
 	{
-	
 		$skipQuery = intval($queryParams["skipQuery"] ?? 0) * 5;
 
 		$entityManager = EntityManagerHelper::getEntityManager();
@@ -23,7 +22,5 @@ class GetPostsService
             ->setFirstResult($skipQuery);
 
 		return $posts->getQuery()->getResult();
-		
 	}
-
 }

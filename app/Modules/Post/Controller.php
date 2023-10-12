@@ -13,14 +13,14 @@ class Controller
 
 	public function index(Request $req, Response $res): Response
 	{
-		$posts = Services\GetPostsService::get($req->getQueryParams());
+		$posts = Services\GetPostsService::handle($req->getQueryParams());
 		
 		return $this->success($posts);
 	}
 
 	public function show(Request $req, Response $res, array $args): Response
 	{
-		$data = Services\GetPostInfosService::get($args);
+		$data = Services\GetPostInfosService::handle($args);
 
 		if ($data) {
 			
