@@ -4,7 +4,6 @@ namespace app\Helpers;
 
 class AppException extends \Exception 
 {
-
 	function __construct( 
 		protected string $appMessage, 
 		protected int $statusCode = 400 
@@ -19,5 +18,4 @@ class AppException extends \Exception
 	{
 		return $this->statusCode;
 	}
-
 }
