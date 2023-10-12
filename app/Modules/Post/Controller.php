@@ -20,14 +20,8 @@ class Controller
 
 	public function show(Request $req, Response $res, array $args): Response
 	{
-		$data = Services\GetPostInfosService::handle($args);
-
-		if ($data) {
-			
-			return $this->success($data);
-			
-		}
-
-		return $this->error();
+		$data = Services\GetPostDataService::handle($args);
+		
+		return $this->success($data);
 	}
 }
