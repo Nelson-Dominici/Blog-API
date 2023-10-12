@@ -2,73 +2,67 @@
 
 namespace app\Modules\User;
 
-use app\Helpers\SendJson;
+use app\Helpers\ApiResponseTrait;
+
 use Respect\Validation\Validator as v;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+
+use Psr\Http\Message\{
+	ResponseInterface as Response,
+	ServerRequestInterface as Request
+};
 
 class Controller
 {
+	use ApiResponseTrait;
 
 	public function login(Request $req, Response $res): Response
 	{
-
 		v::key(
-			"email", v::stringType()::notEmpty()::email()
+			"email", v::stringType()::notEmpty()::email()->length(null, 100)
 		)->key(
-    		"password", v::notEmpty()::stringType()->length(6, null)	
+    		"password", v::notEmpty()::stringType()->length(6, 100)	
     	)->assert($req->getParsedBody());
 
-		$jwt = Services\loginUserService::loginUser($req->getParsedBody());
+		$jwt = Services\LoginUserService::handle($req->getParsedBody());
 
-		return SendJson::send([
-			"success" => true,
-			"data" => ["token" => $jwt]
-		]);
-
+		return $this->success($jwt);
 	}
 
 	public function store(Request $req, Response $res): Response
 	{
-
 		v::key(
-			"name", v::stringType()::notEmpty()
+			"name", v::stringType()::notEmpty()->length(null, 100)
 		)->key(
-    		"email", v::stringType()::notEmpty()::email()	
+    		"email", v::stringType()::notEmpty()::email()->length(null, 100)	
     	)->key(
-    		"password", v::notEmpty()::stringType()->length(6, null)	
+    		"password", v::notEmpty()::stringType()->length(6, 100)	
     	)->assert($req->getParsedBody());
 
-		Services\RegisterUserService::registerUser($req->getParsedBody());
+		Services\RegisterUserService::handle($req->getParsedBody());
 		
-		return SendJson::send(["success" => true]);
-
+		return $this->success();
 	}
 
 	public function destroy(Request $req, Response $res): Response
 	{
-		
 		$userUuid = $req->getAttribute("payload")->userUuid;
-		Services\DeleteUserService::delete($userUuid);
 
-		return SendJson::send(["success" => true]);
+		Services\DeleteUserService::handle($userUuid);
 
+		return $this->success();
 	}
 
 	public function update(Request $req, Response $res): Response
 	{
-
 		v::key(
-			"newName", v::stringType()->notEmpty()
+			"newName", v::stringType()->notEmpty()->length(null, 100)
     	)->assert($req->getParsedBody());
 		
-		Services\RenameUsernameService::renameUsername(
+		Services\RenameUsernameService::handle(
 			$req->getParsedBody(),
 			$req->getAttribute("payload")->userUuid
 		);
 
-		return SendJson::send(["success" => true]);
-
+		return $this->success();
 	}
-
 }
