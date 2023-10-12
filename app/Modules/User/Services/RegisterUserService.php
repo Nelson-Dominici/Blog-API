@@ -3,16 +3,18 @@
 namespace app\Modules\User\Services;
 
 use Ramsey\Uuid\Uuid;
+
 use app\Entitys\Users;
-use app\Helpers\AppException;
-use app\Helpers\EntityManagerHelper;
+
+use app\Helpers\{
+	AppException,
+	EntityManagerHelper
+};
 
 class RegisterUserService
 {
-
-	public static function registerUser(array $reqBody): void
+	public static function handle(array $reqBody): void
 	{
-
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$usersRepository = $entityManager->getRepository(Users::class);
 		
@@ -21,7 +23,7 @@ class RegisterUserService
 		]);
 
 		if ($user) {
-			throw new AppException("Email already registered");
+			throw new AppException("Email already registered.");
 		}
 
 		$user = new Users(Uuid::uuid4());
@@ -32,7 +34,5 @@ class RegisterUserService
 
 		$entityManager->persist($user);
 		$entityManager->flush();
-
 	}
-	
 }
