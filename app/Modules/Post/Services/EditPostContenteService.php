@@ -3,31 +3,29 @@
 namespace app\Modules\Post\Services;
 
 use app\Entitys\Posts;
-use app\Helpers\AppException;
-use app\Helpers\EntityManagerHelper;
+
+use app\Helpers\{
+	AppException,
+	EntityManagerHelper
+};
 
 class EditPostContenteService
 {
-
-	public static function edit(array $reqBody): void
+	public static function handle(string $postUuid, array $reqBody): void
 	{
-
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$postRepository = $entityManager->getRepository(Posts::class);
 
 		$poste = $postRepository->findOneBy([
-		    "uuid" => $reqBody["postUuid"]
+		    "uuid" => $postUuid
 		]);
 
 		if (!$poste) {
 
 			throw new AppException("Post uuid not found", 404);
-
 		}
 
 	    $poste->setContente($reqBody["newContente"]);
 	    $entityManager->flush();
-		
 	}
-	
 }
