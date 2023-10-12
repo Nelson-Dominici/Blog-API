@@ -7,7 +7,7 @@
 
 <h2>🚀 About</h2>
 <p>
-A RESTful API from a blog, made with the <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for exception handling and authentication users using jwt token.
+A RESTful API for a blog, made with <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for database queries using <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.16/index.html">Doctrine ORM</a> and user authentication using <a href="https://github.com/firebase/php-jwt">JWT</a>.
 </p>
   
 <h2>🎱 Features</h2>
@@ -53,7 +53,7 @@ A RESTful API from a blog, made with the <a href="https://www.slimframework.com/
 
 <h2>🛠 Technologies</h2>
 
-<li><a href="https://jwt.io">JWT</a></li>
+<li><a href="https://github.com/firebase/php-jwt">JWT</a></li>
 <li><a href="https://packagist.org/packages/ramsey/uuid">UUID</a></li>
 <li><a href="https://www.mysql.com/">MySQL</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.15/index.html">Doctrine ORM</a></li>
