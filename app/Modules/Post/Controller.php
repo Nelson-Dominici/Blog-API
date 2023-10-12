@@ -3,9 +3,15 @@
 namespace app\Modules\Post;
 
 use app\Helpers\ApiResponseTrait;
+
 use Respect\Validation\Validator as v;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+
+use Psr\Http\Message\{
+	ResponseInterface as Response,
+	ServerRequestInterface as Request
+};
+
+use Psr\Http\Message\
 
 class Controller
 {
