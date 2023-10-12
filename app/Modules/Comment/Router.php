@@ -1,16 +1,19 @@
-<?php
+<?php  
 
 namespace app\Modules\Comment;
+
 use Slim\Routing\RouteCollectorProxy;
 
-$group->get("/all/{postUuid}", [Controller::class, "index"]);
+$group->group("/{postUuid}/comments", function(RouteCollectorProxy $group): void {
 
-$group->group("", function(RouteCollectorProxy $group)
-{
+	$group->get("", [Controller::class, "index"]);
 
-	$group->post("", [Controller::class, "store"]);
-	$group->patch("/edit", [Controller::class, "update"]);
-	
-	$group->delete("/{commentUuid}", [Controller::class, "destroy"]);
-	
-})->add(new \app\Middlewares\AuthenticateReqToken());
+	$group->group("", function(RouteCollectorProxy $group): void {
+
+		$group->post("", [Controller::class, "store"]);
+		$group->patch("", [Controller::class, "update"]);		
+		$group->delete("/{commentUuid}", [Controller::class, "destroy"]);
+		
+	})->add(new \app\Middlewares\AuthenticateReqToken());
+
+});
