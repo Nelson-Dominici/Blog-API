@@ -2,30 +2,32 @@
 
 namespace app\Modules\Post\Services;
 
-use app\Entitys\Posts;
-use app\Entitys\Comments;
-use app\Helpers\AppException;
-use app\Helpers\EntityManagerHelper;
+use app\Entitys\{
+	Posts,
+	Comments
+};
+
+use app\Helpers\{
+	AppException,
+	EntityManagerHelper
+};
 
 class DeletePostService
 {
-	
-	public static function delete(array $urlParams): void
+	public static function handle(string $postUuid): void
 	{
-
 		$entityManager = EntityManagerHelper::getEntityManager();
 
 		$postsRepository = $entityManager->getRepository(Posts::class);
 		$commentRepository = $entityManager->getRepository(Comments::class);
 
 		$post = $postsRepository->findOneBy([
-		    "uuid" => $urlParams["postUuid"]
+		    "uuid" => $postUuid
 		]);
-
+		
 		if (!$post) {
 			
-			throw new AppException("Post uuid not found", 404);
-
+			throw new AppException("Post not found " . $postUuid, 404);
 		}
 
     	$entityManager->remove($post);
@@ -34,10 +36,8 @@ class DeletePostService
 		$queryBuilder = $commentRepository->createQueryBuilder("e")
 		->delete()
 	    ->where("e.postUuid = :postUuid")
-		->setParameter("postUuid", $urlParams["postUuid"]);
+		->setParameter("postUuid", $postUuid);
 
 		$queryBuilder->getQuery()->execute();
-
 	}
-
 }
