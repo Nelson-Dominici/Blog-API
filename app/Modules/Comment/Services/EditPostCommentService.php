@@ -3,14 +3,16 @@
 namespace app\Modules\Comment\Services;
 
 use app\Entitys\Comments;
-use app\Helpers\EntityManagerHelper;
+
+use app\Helpers\{
+	AppException,
+	EntityManagerHelper
+};
 
 class EditPostCommentService
 {
-
-	public static function editComment(array $reqBody, string $userUuid): void
+	public static function handle(array $reqBody, string $userUuid): void
 	{
-
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$commentsRepository = $entityManager->getRepository(Comments::class);
 
@@ -19,13 +21,11 @@ class EditPostCommentService
 		    "userUuid" => $userUuid
 		]);
 
-		if ($comment) {
-
-		    $comment->setContente($reqBody["newContente"]);
-		    $entityManager->flush();
-
+		if (!$comment) {
+			throw new AppException("Comment not found.");
 		}
 
+	    $comment->setContente($reqBody["newContente"]);
+	    $entityManager->flush();
 	}
-
 }

@@ -3,15 +3,16 @@
 namespace app\Modules\Comment\Services;
 
 use app\Entitys\Comments;
-use app\Helpers\EntityManagerHelper;
 
+use app\Helpers\{
+	AppException,
+	EntityManagerHelper
+};
 
 class DeleteCommentService
 {
-
-	public static function delete(array $args, string $userUuid): void
+	public static function handle(array $args, string $userUuid): void
 	{
-		
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$commentRepository = $entityManager->getRepository(Comments::class);
 
@@ -20,13 +21,11 @@ class DeleteCommentService
 		    "uuid" => $args["commentUuid"]
 		]);
 
-		if ($comment) {
-
-		    $entityManager->remove($comment);
-		    $entityManager->flush();
-		    
+		if (!$comment) {
+			throw new AppException("Comment not found.");
 		}
 
+	    $entityManager->remove($comment);
+	    $entityManager->flush();
 	}
-
 } 
