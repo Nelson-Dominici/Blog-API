@@ -10,14 +10,11 @@ $app->group("/api", function(RouteCollectorProxy $group): void {
 
 	$group->group("/v1/posts", function(RouteCollectorProxy $group): void {
 		require_once("Modules/Post/Router.php");
+		require_once("Modules/Comment/Router.php");
 	}); 
 
 	$group->group("/v1/posts", function(RouteCollectorProxy $group): void {
 		require_once("Modules/Adm/Router.php");
 	})->add(new \app\Middlewares\AuthenticateReqToken()); 
-
-	$group->group("/v1/comments", function(RouteCollectorProxy $group): void {
-		require_once("Modules/Comment/Router.php");
-	});	
 
 });	
