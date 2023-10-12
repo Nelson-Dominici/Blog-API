@@ -3,14 +3,16 @@
 namespace app\Modules\User\Services;
 
 use app\Entitys\Users;
-use app\Helpers\EntityManagerHelper;
+
+use app\Helpers\{
+	AppException,
+	EntityManagerHelper
+};
 
 class RenameUsernameService
 {
-
-	public static function renameUsername(array $reqBody, string $userUuid): void
+	public static function handle(array $reqBody, string $userUuid): void
 	{
-
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$usersRepository = $entityManager->getRepository(Users::class);
 		
@@ -18,13 +20,11 @@ class RenameUsernameService
 		    "uuid" => $userUuid
 		]);
 
-		if ($user) {
-
-		    $user->setName($reqBody["newName"]);
-		    $entityManager->flush();
-
+		if (!$user) {
+			throw new AppException("User not found.");
 		}
 
+	    $user->setName($reqBody["newName"]);
+	    $entityManager->flush();
 	}
-	
 }
