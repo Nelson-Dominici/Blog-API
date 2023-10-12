@@ -9,21 +9,20 @@ use Respect\Validation\Validator as v;
 use Psr\Http\Message\{
 	ResponseInterface as Response,
 	ServerRequestInterface as Request
-}
+};
 
 class Controller
 {
 	use ApiResponseTrait;
 
-	public function store(Request $req, Response $res): Response
+	public function store(Request $req, Response $res, array $args): Response
 	{
 		v::key(
 			"contente", v::stringType()->notEmpty()
-		)->key(
-    		"postUuid", v::stringType()->notEmpty()
-    	)->assert($req->getParsedBody());
+		)->assert($req->getParsedBody());
 
 		Services\AddCommentService::handle(
+			$args["postUuid"],
 			$req->getParsedBody(),
 			$req->getAttribute("payload")->userUuid
 		);
@@ -44,10 +43,8 @@ class Controller
 	public function destroy(Request $req, Response $res, array $args): Response
 	{
 
-		var_dump($req->getAttribute("payload"));
-		die();
 		Services\DeleteCommentService::handle(
-			$args, $req->getAttribute("payload")->userUuid
+			$args["commentUuid"], $req->getAttribute("payload")->userUuid
 		);
 
 		return $this->success();
