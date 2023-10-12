@@ -3,6 +3,7 @@
 namespace app\Modules\Comment\Services;
 
 use app\Entitys\{
+	Users,
 	Posts,
 	Comments
 };
@@ -16,15 +17,15 @@ use app\Helpers\{
 
 class AddCommentService
 {
-	public static function handle(array $reqBody, string $userUuid): void
+	public static function handle(string $postUuid, array $reqBody, string $userUuid): void
 	{
 		$entityManager = EntityManagerHelper::getEntityManager();
 
-		$userRepository = $entityManager->getRepository(User::class);
+		$userRepository = $entityManager->getRepository(Users::class);
 		$postsRepository = $entityManager->getRepository(Posts::class);
 
 		$post = $postsRepository->findOneBy([
-		    "uuid" => $reqBody["postUuid"]
+		    "uuid" => $postUuid
 		]);
 
 		$user = $userRepository->findOneBy([
@@ -40,7 +41,7 @@ class AddCommentService
 		$comments = new Comments(new \DateTime(), $commentUuid);
 
 		$comments->setUserUuid($userUuid);
-		$comments->setPostUuid($reqBody["postUuid"]);
+		$comments->setPostUuid($postUuid);
 		$comments->setContente($reqBody["contente"]);
 
 		$entityManager->persist($comments);

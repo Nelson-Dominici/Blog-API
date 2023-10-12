@@ -11,14 +11,14 @@ use app\Helpers\{
 
 class DeleteCommentService
 {
-	public static function handle(array $args, string $userUuid): void
+	public static function handle(string $commentUuid, string $userUuid): void
 	{
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$commentRepository = $entityManager->getRepository(Comments::class);
 
 		$comment = $commentRepository->findOneBy([
 		    "userUuid" => $userUuid,
-		    "uuid" => $args["commentUuid"]
+		    "uuid" => $commentUuid
 		]);
 
 		if (!$comment) {
