@@ -2,16 +2,16 @@
 
 namespace app\Modules\Post;
 
-use Slim\Routing\RouteCollectorProxy;
+use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 $group->get("", [PostController::class, "index"]);
 $group->get("/{postUuid}", [PostController::class, "show"]);
 
-$group->group("", function(RouteCollectorProxy $group): void {
+$group->group("", function(Group $group): void {
 
 	$group->post("", [PostController::class, "store"]);
 
-	$group->group("/{postUuid}", function(RouteCollectorProxy $group): void {
+	$group->group("/{postUuid}", function(Group $group): void {
 
 		$group->delete("", [PostController::class, "destroy"]);
 		$group->patch("/title", [PostController::class, "editTitle"]);

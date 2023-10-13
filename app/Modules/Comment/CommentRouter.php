@@ -2,13 +2,13 @@
 
 namespace app\Modules\Comment;
 
-use Slim\Routing\RouteCollectorProxy;
+use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
-$group->group("/{postUuid}/comments", function(RouteCollectorProxy $group): void {
+$group->group("/{postUuid}/comments", function(Group $group): void {
 
 	$group->get("", [CommentController::class, "index"]);
 
-	$group->group("", function(RouteCollectorProxy $group): void {
+	$group->group("", function(Group $group): void {
 
 		$group->post("", [CommentController::class, "store"]);
 		$group->patch("", [CommentController::class, "update"]);		
