@@ -16,16 +16,16 @@ class EditPostContenteService
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$postRepository = $entityManager->getRepository(Posts::class);
 
-		$poste = $postRepository->findOneBy([
+		$post = $postRepository->findOneBy([
 		    "uuid" => $postUuid
 		]);
 
-		if (!$poste) {
+		if (!$post) {
 
 			throw new AppException("Post uuid not found", 404);
 		}
 
-	    $poste->setContente($reqBody["newContente"]);
+	    $post->setContente($reqBody["newContente"]);
 	    $entityManager->flush();
 	}
 }
