@@ -27,7 +27,7 @@ class DeletePostService
 		
 		if (!$post) {
 			
-			throw new AppException("Post not found " . $postUuid, 404);
+			throw new AppException("Post not found", 404);
 		}
 
     	$entityManager->remove($post);
