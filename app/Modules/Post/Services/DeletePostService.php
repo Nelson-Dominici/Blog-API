@@ -21,23 +21,22 @@ class DeletePostService
 		$postsRepository = $entityManager->getRepository(Posts::class);
 		$commentRepository = $entityManager->getRepository(Comments::class);
 
-		$post = $postsRepository->findOneBy([
-		    "uuid" => $postUuid
-		]);
-		
-		if (!$post) {
-			
+		$affectedRows  = $postsRepository->createQueryBuilder("p")
+			->delete()
+			->where("p.uuid = :postUuid")
+			->setParameter("postUuid", $postUuid)
+			->getQuery()
+			->execute();
+
+		if ($affectedRows === 0) {
 			throw new AppException("Post not found", 404);
 		}
 
-    	$entityManager->remove($post);
-	    $entityManager->flush();
-
-		$queryBuilder = $commentRepository->createQueryBuilder("e")
-		->delete()
-	    ->where("e.postUuid = :postUuid")
-		->setParameter("postUuid", $postUuid);
-
-		$queryBuilder->getQuery()->execute();
+		$commentRepository->createQueryBuilder("c")
+			->delete()
+	    	->where("c.postUuid = :postUuid")
+			->setParameter("postUuid", $postUuid)
+			->getQuery()
+			->execute();
 	}
 }
