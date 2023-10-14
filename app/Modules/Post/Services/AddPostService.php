@@ -10,12 +10,13 @@ use app\Helpers\EntityManagerHelper;
 
 class AddPostService
 {
-	public static function handle(array $reqBody): void
+	public static function handle(array $reqBody, string $userUuid): void
 	{
 		$entityManager = EntityManagerHelper::getEntityManager();
 
 		$posts = new Posts(new \DateTime(), Uuid::uuid4());
 
+		$posts->setUserUuid($userUuid);
 		$posts->setTitle($reqBody["title"]);
 		$posts->setContente($reqBody["contente"]);
 
