@@ -16,16 +16,17 @@ class DeleteCommentService
 		$entityManager = EntityManagerHelper::getEntityManager();
 		$commentRepository = $entityManager->getRepository(Comments::class);
 
-		$comment = $commentRepository->findOneBy([
-		    "userUuid" => $userUuid,
-		    "uuid" => $commentUuid
-		]);
+		$affectedRows = $commentRepository->createQueryBuilder("c")
+		    ->delete()
+		    ->where("c.uuid = :commentUuid")
+		    ->andWhere("c.userUuid = :userUuid")
+		    ->setParameter("commentUuid", $commentUuid)
+		    ->setParameter("userUuid", $userUuid)
+		    ->getQuery()
+		    ->execute();
 
-		if (!$comment) {
+		if ($affectedRows === 0) {
 			throw new AppException("Comment not found.");
 		}
-
-	    $entityManager->remove($comment);
-	    $entityManager->flush();
 	}
 } 
