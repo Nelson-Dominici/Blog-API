@@ -27,8 +27,6 @@ class GetCommentsService
 		    ->setFirstResult($skipQuery)
 		    ->setParameter("postUuid", $postUuid);
 
-		$data = ["comments" => $queryBuilder->getQuery()->getResult()];
-
-		return $data;
+		return $queryBuilder->getQuery()->getResult();
 	}
 }
