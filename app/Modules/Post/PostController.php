@@ -15,17 +15,17 @@ class PostController
 {
 	use ApiResponseTrait;
 
-	public function editContente(Request $req, Response $res, array $args): Response
+	public function editContente(Request $request, Response $response, array $args): Response
 	{
-		if ($req->getAttribute("payload")->adm) {
+		if ($request->getAttribute("payload")->adm) {
 
 			v::key(
 	    		"newContente", v::stringType()->notEmpty()	
-	    	)->assert($req->getParsedBody());
+	    	)->assert($request->getParsedBody());
 
 			Services\EditPostContenteService::handle(
 				$args["postUuid"],
-				$req->getParsedBody()
+				$request->getParsedBody()
 			);
 
 			return $this->success();
@@ -34,17 +34,17 @@ class PostController
 		return $this->error("Unauthorized user.", 401);
 	}
 	
-	public function editTitle(Request $req, Response $res, array $args): Response
+	public function editTitle(Request $request, Response $response, array $args): Response
 	{
-		if ($req->getAttribute("payload")->adm) {
+		if ($request->getAttribute("payload")->adm) {
 
 			v::key(
 	    		"newTitle", v::stringType()->notEmpty()->length(null, 100)
-	    	)->assert($req->getParsedBody());
+	    	)->assert($request->getParsedBody());
 
 			Services\EditPostTitleService::handle(
 				$args["postUuid"],
-				$req->getParsedBody()
+				$request->getParsedBody()
 			);
 
 			return $this->success();
@@ -53,17 +53,20 @@ class PostController
 		return $this->error("Unauthorized user.", 401);
 	}
 
-	public function store(Request $req, Response $res): Response
+	public function store(Request $request, Response $response): Response
 	{
-		if ($req->getAttribute("payload")->adm) {
+		if ($request->getAttribute("payload")->adm) {
 			
 			v::key(
 				"title", v::stringType()->notEmpty()->length(null, 100)
 			)->key(
 	    		"contente", v::stringType()->notEmpty()	
-	    	)->assert($req->getParsedBody());
+	    	)->assert($request->getParsedBody());
 
-			Services\AddPostService::handle($req->getParsedBody());
+			Services\AddPostService::handle(
+				$request->getParsedBody(),
+				$request->getAttribute("payload")->uuid
+			);
 
 			return $this->success();
 		}
@@ -71,9 +74,9 @@ class PostController
 		return $this->error("Unauthorized user.", 401);
 	}
 
-	public function destroy(Request $req, Response $res, array $args): Response
+	public function destroy(Request $request, Response $response, array $args): Response
 	{
-		if ($req->getAttribute("payload")->adm) {
+		if ($request->getAttribute("payload")->adm) {
 
 			Services\DeletePostService::handle($args["postUuid"]);
 
@@ -83,14 +86,14 @@ class PostController
 		return $this->error("Unauthorized user.", 401);
 	}
 
-	public function index(Request $req, Response $res): Response
+	public function index(Request $request, Response $response): Response
 	{
-		$posts = Services\GetPostsService::handle($req->getQueryParams());
+		$posts = Services\GetPostsService::handle($request->getQueryParams());
 		
 		return $this->success($posts);
 	}
 
-	public function show(Request $req, Response $res, array $args): Response
+	public function show(Request $request, Response $response, array $args): Response
 	{
 		$data = Services\GetPostDataService::handle($args);
 		
