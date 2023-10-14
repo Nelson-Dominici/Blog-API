@@ -15,52 +15,51 @@ class CommentController
 {
 	use ApiResponseTrait;
 
-	public function store(Request $req, Response $res, array $args): Response
+	public function store(Request $request, Response $resposnse, array $args): Response
 	{
 		v::key(
 			"contente", v::stringType()->notEmpty()
-		)->assert($req->getParsedBody());
+		)->assert($request->getParsedBody());
 
 		Services\AddCommentService::handle(
 			$args["postUuid"],
-			$req->getParsedBody(),
-			$req->getAttribute("payload")->userUuid
+			$request->getParsedBody(),
+			$request->getAttribute("payload")->uuid
 		);
 
 		return $this->success();
 	}
 
-	public function index(Request $req, Response $res, array $args): Response
+	public function index(Request $request, Response $resposnse, array $args): Response
 	{
 		$comments = Services\GetCommentsService::handle(
 			$args["postUuid"], 
-			$req->getQueryParams()
+			$request->getQueryParams()
 		);
 
 		return $this->success($comments);
 	}
 
-	public function destroy(Request $req, Response $res, array $args): Response
+	public function destroy(Request $request, Response $resposnse, array $args): Response
 	{
-
 		Services\DeleteCommentService::handle(
-			$args["commentUuid"], $req->getAttribute("payload")->userUuid
+			$args["commentUuid"], $request->getAttribute("payload")->uuid
 		);
 
 		return $this->success();
 	}
 
-	public function update(Request $req, Response $res): Response
+	public function update(Request $request, Response $resposnse): Response
 	{
 		v::key(
 			"newContente", v::stringType()->notEmpty()
 		)->key(
     		"commentUuid", v::stringType()->notEmpty()
-    	)->assert($req->getParsedBody());
+    	)->assert($request->getParsedBody());
 
 		Services\EditPostCommentService::handle(
-			$req->getParsedBody(), 
-			$req->getAttribute("payload")->userUuid
+			$request->getParsedBody(), 
+			$request->getAttribute("payload")->uuid
 		);
 
 		return $this->success();
