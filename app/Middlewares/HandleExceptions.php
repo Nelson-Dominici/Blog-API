@@ -24,20 +24,18 @@ class HandleExceptions
     {
 		if ($exception instanceof AppException) {
 
-			return $this->error(
-				$exception->getAppMessage(), 
-				$exception->getStatusCode()
-			);
+			return $this->jsonResponse([
+				"success" => false,
+				"error" => $exception->getAppMessage()
+			], $exception->getStatusCode());
 	    }
 
 	   	if ($exception instanceof NestedValidationException) {
 
-			return $this->error(array_values($exception->getMessages())[0], 400);
-	    }
-
-	   	if ($exception instanceof JWTException) {
-
-			return $this->error('Na hora meu patrão', 400);
+			return $this->jsonResponse([
+				"success" => false,
+				"error" => array_values($exception->getMessages())[0]
+			], 400);
 	    }
 
 	    var_dump($exception);
