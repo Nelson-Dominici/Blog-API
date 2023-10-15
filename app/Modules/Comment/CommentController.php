@@ -27,7 +27,7 @@ class CommentController
 			$request->getAttribute("payload")->uuid
 		);
 
-		return $this->success();
+		return $this->jsonResponse(["success" => true]);
 	}
 
 	public function index(Request $request, Response $resposnse, array $args): Response
@@ -37,7 +37,10 @@ class CommentController
 			$request->getQueryParams()
 		);
 
-		return $this->success($comments);
+		return $this->jsonResponse([
+			"success" => true,
+			"data" => $comments
+		]);
 	}
 
 	public function destroy(Request $request, Response $resposnse, array $args): Response
@@ -46,7 +49,7 @@ class CommentController
 			$args["commentUuid"], $request->getAttribute("payload")->uuid
 		);
 
-		return $this->success();
+		return $this->jsonResponse(["success" => true]);
 	}
 
 	public function update(Request $request, Response $resposnse): Response
@@ -62,6 +65,6 @@ class CommentController
 			$request->getAttribute("payload")->uuid
 		);
 
-		return $this->success();
+		return $this->jsonResponse(["success" => true]);
 	}
 }

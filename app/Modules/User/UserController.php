@@ -15,20 +15,23 @@ class UserController
 {
 	use ApiResponseTrait;
 
-	public function login(Request $req, Response $res): Response
+	public function login(Request $request, Response $response): Response
 	{
 		v::key(
 			"email", v::stringType()::notEmpty()::email()->length(null, 100)
 		)->key(
     		"password", v::notEmpty()::stringType()->length(6, 100)	
-    	)->assert($req->getParsedBody());
+    	)->assert($request->getParsedBody());
 
-		$jwt = Services\LoginUserService::handle($req->getParsedBody());
+		$jwt = Services\LoginUserService::handle($request->getParsedBody());
 
-		return $this->success($jwt);
+		return $this->jsonResponse([
+			"success" => true,
+			"data" => $jwt
+		]);
 	}
 
-	public function store(Request $req, Response $res): Response
+	public function store(Request $request, Response $response): Response
 	{
 		v::key(
 			"name", v::stringType()::notEmpty()->length(null, 100)
@@ -36,33 +39,33 @@ class UserController
     		"email", v::stringType()::notEmpty()::email()->length(null, 100)	
     	)->key(
     		"password", v::notEmpty()::stringType()->length(6, 100)	
-    	)->assert($req->getParsedBody());
+    	)->assert($request->getParsedBody());
 
-		Services\RegisterUserService::handle($req->getParsedBody());
+		Services\RegisterUserService::handle($request->getParsedBody());
 		
-		return $this->success();
+		return $this->jsonResponse(["success" => true]);
 	}
 
-	public function destroy(Request $req, Response $res): Response
+	public function destroy(Request $request, Response $response): Response
 	{
-		$userUuid = $req->getAttribute("payload")->userUuid;
+		Services\DeleteUserService::handle(
+			$request->getAttribute("payload")->uuid
+		);
 
-		Services\DeleteUserService::handle($userUuid);
-
-		return $this->success();
+		return $this->jsonResponse(["success" => true]);
 	}
 
-	public function update(Request $req, Response $res): Response
+	public function update(Request $request, Response $response): Response
 	{
 		v::key(
 			"newName", v::stringType()->notEmpty()->length(null, 100)
-    	)->assert($req->getParsedBody());
+    	)->assert($request->getParsedBody());
 		
 		Services\RenameUsernameService::handle(
-			$req->getParsedBody(),
-			$req->getAttribute("payload")->userUuid
+			$request->getParsedBody(),
+			$request->getAttribute("payload")->uuid
 		);
 
-		return $this->success();
+		return $this->jsonResponse(["success" => true]);
 	}
 }
