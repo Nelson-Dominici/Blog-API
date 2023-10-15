@@ -5,7 +5,6 @@ namespace app\Modules\User;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 $group->post("", [UserController::class, "store"]);
-$group->post("/login", [UserController::class, "login"]);
 
 $group->group("", function(Group $group): void {
 
