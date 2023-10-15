@@ -15,22 +15,6 @@ class UserController
 {
 	use ApiResponseTrait;
 
-	public function login(Request $request, Response $response): Response
-	{
-		v::key(
-			"email", v::stringType()::notEmpty()::email()->length(null, 100)
-		)->key(
-    		"password", v::notEmpty()::stringType()->length(6, 100)	
-    	)->assert($request->getParsedBody());
-
-		$jwt = Services\LoginUserService::handle($request->getParsedBody());
-
-		return $this->jsonResponse([
-			"success" => true,
-			"data" => $jwt
-		]);
-	}
-
 	public function store(Request $request, Response $response): Response
 	{
 		v::key(
