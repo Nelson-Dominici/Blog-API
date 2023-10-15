@@ -1,6 +1,7 @@
 <?php
 
 namespace app\Entitys;
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -8,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Posts
 {
-
     #[ORM\Column(type: "string", length: 100)]
     private string $title;
 
@@ -22,40 +22,42 @@ class Posts
     #[ORM\Column(type: "string", length: 36)]
     private string $uuid;
 
+    #[ORM\Column(type: "string", length: 36)]
+    private string $userUuid;
+
     public function setTitle(string $title): void
     {
-
         $this->title = $title;
-    
+    }
+
+    public function setUserUuid(string $userUuid): void
+    {
+        $this->userUuid = $userUuid;
     }
 
     public function setContente(string $contente): void
     {
-
         $this->contente = $contente;
-    
     }
 
     public function getTitle(): string
     {
-
         return $this->title;
-    
     }
 
     public function getContente(): string
     {
-
         return $this->contente;
-    
+    }
+
+    public function getUserUuid(): string
+    {
+        return $this->userUuid;
     }
 
     function __construct(\DateTimeInterface $date, string $uuid)
     {
-
         $this->date = $date;
         $this->uuid = $uuid;
-    
     }
-
 }
