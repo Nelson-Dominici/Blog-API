@@ -25,7 +25,7 @@ class EditPostCommentService
 			throw new AppException("Comment not found.");
 		}
 
-	    $comment->setContente($reqBody["newContente"]);
+	    $comment->setContent($reqBody["newContent"]);
 	    $entityManager->flush();
 	}
 }

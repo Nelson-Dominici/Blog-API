@@ -18,7 +18,7 @@ class CommentController
 	public function store(Request $request, Response $resposnse, array $args): Response
 	{
 		v::key(
-			"contente", v::stringType()->notEmpty()
+			"content", v::stringType()->notEmpty()
 		)->assert($request->getParsedBody());
 
 		Services\AddCommentService::handle(
@@ -55,7 +55,7 @@ class CommentController
 	public function update(Request $request, Response $resposnse): Response
 	{
 		v::key(
-			"newContente", v::stringType()->notEmpty()
+			"newContent", v::stringType()->notEmpty()
 		)->key(
     		"commentUuid", v::stringType()->notEmpty()
     	)->assert($request->getParsedBody());

@@ -16,7 +16,7 @@ class Posts
     private \DateTimeInterface $date;
 
     #[ORM\Column(type: "text")]
-    private string $contente;
+    private string $content;
 
     #[ORM\Id]
     #[ORM\Column(type: "string", length: 36)]
@@ -35,9 +35,9 @@ class Posts
         $this->userUuid = $userUuid;
     }
 
-    public function setContente(string $contente): void
+    public function setContent(string $content): void
     {
-        $this->contente = $contente;
+        $this->content = $content;
     }
 
     public function getTitle(): string
@@ -45,9 +45,9 @@ class Posts
         return $this->title;
     }
 
-    public function getContente(): string
+    public function getContent(): string
     {
-        return $this->contente;
+        return $this->content;
     }
 
     public function getUserUuid(): string

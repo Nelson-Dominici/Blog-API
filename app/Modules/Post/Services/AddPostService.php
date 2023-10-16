@@ -33,7 +33,7 @@ class AddPostService
 
 		$posts->setUserUuid($userUuid);
 		$posts->setTitle($reqBody["title"]);
-		$posts->setContente($reqBody["contente"]);
+		$posts->setContent($reqBody["content"]);
 
 		$entityManager->persist($posts);
 		$entityManager->flush();

@@ -19,7 +19,7 @@ class Comments
     private string $postUuid;
 
     #[ORM\Column(type: "text")]
-    private string $contente;
+    private string $content;
 
     #[ORM\Id]
     #[ORM\Column(type: "string", length: 36)]
@@ -39,10 +39,10 @@ class Comments
 
     }
 
-    public function setContente(string $contente): void
+    public function setContent(string $content): void
     {
 
-        $this->contente = $contente;
+        $this->content = $content;
 
     }
 

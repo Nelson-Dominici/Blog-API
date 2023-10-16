@@ -15,13 +15,13 @@ class PostController
 {
 	use ApiResponseTrait;
 
-	public function editContente(Request $request, Response $response, array $args): Response
+	public function editContent(Request $request, Response $response, array $args): Response
 	{
 		v::key(
-    		"newContente", v::stringType()->notEmpty()	
+    		"newContent", v::stringType()->notEmpty()	
     	)->assert($request->getParsedBody());
 
-		Services\EditPostContenteService::handle(
+		Services\EditPostContentService::handle(
 			$args["postUuid"],
 			$request->getParsedBody()
 		);
@@ -48,7 +48,7 @@ class PostController
 		v::key(
 			"title", v::stringType()->notEmpty()->length(null, 100)
 		)->key(
-    		"contente", v::stringType()->notEmpty()	
+    		"content", v::stringType()->notEmpty()	
     	)->assert($request->getParsedBody());
 
 		Services\AddPostService::handle(

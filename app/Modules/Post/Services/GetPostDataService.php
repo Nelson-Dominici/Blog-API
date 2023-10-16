@@ -25,11 +25,11 @@ class GetPostDataService
 		}
 
 		$parsedown = new \Parsedown();
-		$contente = $parsedown->text($post->getContente());
+		$content = $parsedown->text($post->getContent());
 
 		return [
 			"title" => $post->getTitle(),
-			"contente" => $contente
+			"content" => $content
 		];
 	}
 }
