@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class CommentsTest extends TestCase
 {
-    public function test_set_userUuid(): void
+    public function test_set_userUuid_method(): void
     {
     	$userUuid = Uuid::uuid4();
 
@@ -20,7 +20,7 @@ class CommentsTest extends TestCase
         $this->assertEquals($userUuid, $comments->getUserUuid());
     }
 
-    public function test_set_postUuid(): void
+    public function test_set_postUuid_method(): void
     {
     	$postUuid = Uuid::uuid4();
 
@@ -30,7 +30,7 @@ class CommentsTest extends TestCase
         $this->assertEquals($postUuid, $comments->getPostUuid());
     }
 
-    public function test_set_content(): void
+    public function test_set_content_method(): void
     {
     	$content = "Hello World.";
 
@@ -40,7 +40,7 @@ class CommentsTest extends TestCase
         $this->assertEquals($content, $comments->getContent());
     }
 
-    public function test_get_date(): void
+    public function test_get_date_method(): void
     {
     	$date = new \DateTime();
 
@@ -49,7 +49,7 @@ class CommentsTest extends TestCase
         $this->assertEquals($date, $comments->getDate());
     }
 
-    public function test_get_uuid(): void
+    public function test_get_uuid_method(): void
     {
     	$uuid = Uuid::uuid4();
 

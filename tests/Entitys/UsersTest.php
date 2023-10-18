@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class UsersTest extends TestCase
 {
-    public function test_set_name(): void
+    public function test_set_name_method(): void
     {
     	$name = "Nelson Dominici";
 
@@ -20,7 +20,7 @@ class UsersTest extends TestCase
         $this->assertEquals($name, $users->getName());
     }
 
-    public function test_set_email(): void
+    public function test_set_email_method(): void
     {
     	$email = "nelsondominici777@gmail.com";
 
@@ -30,7 +30,7 @@ class UsersTest extends TestCase
         $this->assertEquals($email, $users->getEmail());
     }
 
-    public function test_get_adm(): void
+    public function test_get_adm_method(): void
     {
         $users = new Users(Uuid::uuid4());
 
