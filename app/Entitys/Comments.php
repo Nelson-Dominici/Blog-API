@@ -1,6 +1,7 @@
 <?php
 
 namespace app\Entitys;
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -8,8 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Comments
 {
-
-    #[ORM\Column(type: "datetime", length: 15)]
+    #[ORM\Column(type: "datetime")]
     private \DateTimeInterface  $date;
 
     #[ORM\Column(type: "string", length: 36)]
@@ -27,45 +27,47 @@ class Comments
 
     public function setUserUuid(string $userUuid): void
     {
-
         $this->userUuid = $userUuid;
-
     }
 
     public function setPostUuid(string $postUuid): void
     {
-
         $this->postUuid = $postUuid;
-
     }
 
     public function setContent(string $content): void
     {
-
         $this->content = $content;
-
     }
 
     public function getDate(): \DateTimeInterface
     {
-
         return $this->date;
-
     }
 
     public function getUuid(): string
     {
-
         return $this->uuid;
-
+    }
+    
+    public function getUserUuid(): string
+    {
+        return $this->userUuid;
+    }
+    
+    public function getPostUuid(): string
+    {
+        return $this->postUuid;
+    }
+    
+    public function getContent(): string
+    {
+        return $this->content;
     }
 
-    function __construct(\DateTimeInterface $date, string $uuid)
+    public function __construct(\DateTimeInterface $date, string $uuid)
     {
-
         $this->date = $date;
         $this->uuid = $uuid;
-
     }
-
 }

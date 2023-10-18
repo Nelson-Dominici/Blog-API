@@ -55,7 +55,17 @@ class Posts
         return $this->userUuid;
     }
 
-    function __construct(\DateTimeInterface $date, string $uuid)
+    public function getDate(): \DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function getUuid(): string
+    {
+        return $this->uuid;
+    }
+
+    public function __construct(\DateTimeInterface $date, string $uuid)
     {
         $this->date = $date;
         $this->uuid = $uuid;

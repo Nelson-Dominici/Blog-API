@@ -1,6 +1,7 @@
 <?php
 
 namespace app\Entitys;
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -8,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Users
 {
-
     #[ORM\Column(type: "string", length: 255)]
     private string $name;
 
@@ -27,59 +27,46 @@ class Users
 
     public function setName(string $name): void
     {
-
         $this->name = $name;
     }
     
-
     public function setEmail(string $email): void
     {
-
         $this->email = $email;
     }
-    
 
     public function setPassword(string $password): void
     {
-
         $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
     
-
-    function __construct(string $uuid)
-    {
-
-        $this->uuid = $uuid;
-    }
-    
-
     public function getPassword(): string
     {
-
         return $this->password;
     }
-    
 
     public function getUuid(): string
     {
-
         return $this->uuid;
     }
-    
 
     public function getName(): string
     {
-
         return $this->name;
     }
-    
 
-    public function getAdm(): string
+    public function getEmail(): string
     {
-
-        return $this->adm;
-        
+        return $this->email;
     }
-    
+        
+    public function getAdm(): bool
+    {
+        return $this->adm;
+    }
 
+    public function __construct(string $uuid)
+    {
+        $this->uuid = $uuid;
+    }
 }
