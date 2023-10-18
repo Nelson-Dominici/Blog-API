@@ -40,21 +40,15 @@ class PostsTest extends TestCase
         $this->assertEquals($content, $posts->getContent());
     }
 
-    public function test_get_date(): void
+    public function test_constructor_method(): void
     {
-    	$date = new \DateTime();
-
-        $posts = new Posts($date, Uuid::uuid4());
-
-        $this->assertEquals($date, $posts->getDate());
-    }
-
-    public function test_get_uuid(): void
-    {
-    	$uuid = Uuid::uuid4();
-
-        $posts = new Posts(new \DateTime(), $uuid);
+        $uuid = Uuid::uuid4();
+        
+        $date = new \DateTime();
+        
+        $posts = new Posts($date, $uuid);
 
         $this->assertEquals($uuid, $posts->getUuid());
+        $this->assertEquals($date, $posts->getDate());
     }
-}
+} 

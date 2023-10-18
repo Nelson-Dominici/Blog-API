@@ -37,7 +37,7 @@ class UsersTest extends TestCase
         $this->assertFalse($users->getAdm());
     }
 
-    public function test_get_uuid(): void
+    public function test_constructor_method(): void
     {
     	$uuid = Uuid::uuid4();
         

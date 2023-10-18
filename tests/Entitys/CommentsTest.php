@@ -57,4 +57,16 @@ class CommentsTest extends TestCase
 
         $this->assertEquals($uuid, $comments->getUuid());
     }
+
+    public function test_constructor_method(): void
+    {
+        $uuid = Uuid::uuid4();
+        
+        $date = new \DateTime();
+        
+        $comments = new Comments($date, $uuid);
+
+        $this->assertEquals($uuid, $comments->getUuid());
+        $this->assertEquals($date, $comments->getDate());
+    }
 }
