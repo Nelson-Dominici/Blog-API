@@ -4,19 +4,22 @@ namespace app\Modules\Post;
 
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
-$group->get("", [PostController::class, "index"]);
-$group->get("/{postUuid}", [PostController::class, "show"]);
+return function(Group $group) {
 
-$group->group("", function(Group $group): void {
+	$group->get("", [PostController::class, "index"]);
+	$group->get("/{postUuid}", [PostController::class, "show"]);
 
-	$group->post("", [PostController::class, "store"]);
+	$group->group("", function(Group $group): void {
 
-	$group->group("/{postUuid}", function(Group $group): void {
+		$group->post("", [PostController::class, "store"]);
 
-		$group->delete("", [PostController::class, "destroy"]);
-		$group->patch("/title", [PostController::class, "editTitle"]);
-		$group->patch("/contente", [PostController::class, "editContente"]);
+		$group->group("/{postUuid}", function(Group $group): void {
 
-	});
+			$group->delete("", [PostController::class, "destroy"]);
+			$group->patch("/title", [PostController::class, "editTitle"]);
+			$group->patch("/contente", [PostController::class, "editContente"]);
 
-})->add(new \app\Middlewares\AuthenticateReqToken());
+		});
+
+	})->add(new \app\Middlewares\AuthenticateReqToken());
+};

@@ -4,16 +4,20 @@ namespace app\Modules\Comment;
 
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
-$group->group("/{postUuid}/comments", function(Group $group): void {
+return function(Group $group) {
 
-	$group->get("", [CommentController::class, "index"]);
+	$group->group("/{postUuid}/comments", function(Group $group): void {
 
-	$group->group("", function(Group $group): void {
+		$group->get("", [CommentController::class, "index"]);
 
-		$group->post("", [CommentController::class, "store"]);
-		$group->patch("", [CommentController::class, "update"]);		
-		$group->delete("/{commentUuid}", [CommentController::class, "destroy"]);
-		
-	})->add(new \app\Middlewares\AuthenticateReqToken());
+		$group->group("", function(Group $group): void {
 
-});
+			$group->post("", [CommentController::class, "store"]);
+			$group->patch("", [CommentController::class, "update"]);		
+			$group->delete("/{commentUuid}", [CommentController::class, "destroy"]);
+			
+		})->add(new \app\Middlewares\AuthenticateReqToken());
+
+	});
+
+};

@@ -4,11 +4,14 @@ namespace app\Modules\User;
 
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
-$group->post("", [UserController::class, "store"]);
+return function(Group $group) {
 
-$group->group("", function(Group $group): void {
+	$group->post("", [UserController::class, "store"]);
 
-	$group->patch("", [UserController::class, "update"]);
-	$group->delete("", [UserController::class, "destroy"]);
-	
-})->add(new \app\Middlewares\AuthenticateReqToken());
+	$group->group("", function(Group $group): void {
+
+		$group->patch("", [UserController::class, "update"]);
+		$group->delete("", [UserController::class, "destroy"]);
+		
+	})->add(new \app\Middlewares\AuthenticateReqToken());
+};
