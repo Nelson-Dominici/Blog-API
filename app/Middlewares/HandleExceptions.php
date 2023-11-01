@@ -38,7 +38,6 @@ class HandleExceptions
 			], 400);
 	    }
 
-	    var_dump($exception);
-		// return $this->error("Fatal Error", 500);
+		return $this->error("Fatal Error", 500);
    }
 }
