@@ -8,7 +8,7 @@ $dotenv->load();
 $app = Slim\Factory\AppFactory::create();
 $app->addRoutingMiddleware();
 
-$app->add(new \app\Middlewares\GetReqbody());
+$app->add(new \app\Middlewares\GetRequestbody());
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 $errorMiddleware->setDefaultErrorHandler(new \app\Middlewares\HandleExceptions());
