@@ -7,7 +7,7 @@
 
 <h2>🚀 About</h2>
 <p>
-A RESTful API for a blog, made with <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for database queries using <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.16/index.html">Doctrine ORM</a> and user authentication using <a href="https://github.com/firebase/php-jwt">JWT</a>.
+A REST API for a blog, made with <a href="https://www.slimframework.com/docs/v4/">Slim Framework 4</a>, with integration for database queries using <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.16/index.html">Doctrine ORM</a> and user authentication using <a href="https://github.com/firebase/php-jwt">JWT</a>.
 </p>
   
 <h2>🎱 Features</h2>
